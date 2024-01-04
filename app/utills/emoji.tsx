@@ -15,8 +15,22 @@ export default function Emoji() {
   }, [])
 
   return (
-    <div className='text-2xl'>
+    <div className={homeButton}>
         {logoEmoji}
     </div>
   );
 }
+
+//Creates framing for emoji, mimics theme switch button
+const homeButton=`
+text-2xl 
+p-1 
+border 
+rounded-full 
+border-primary 
+bg-background
+
+//dark
+dark:border-primaryDark 
+dark:bg-backgroundDark
+`

@@ -8,13 +8,13 @@ interface Props {
 
 export default function Header({ title = "", tags = false }: Props){
   return (
-    <header className="py-14 px-4 mb-12 text-center border-b dark:border-purple-900">
-      <h2 className="uppercase text-2xl mx-auto max-w-2xl font-bold">
+    <header className={headerDecoration}>
+      <h2 className={headerTitle}>
         {title}
       </h2>
 
       {tags && (
-        <div className="text-xs mt-2 hover:text-purple-500">
+        <div className={headerTags}>
           <Link href="/tag"> All tags</Link>
         </div>
       )}
@@ -22,3 +22,29 @@ export default function Header({ title = "", tags = false }: Props){
   );
 };
 
+//Currently underlines the header
+const headerDecoration=`
+py-14 
+px-4 
+mb-12 
+text-center 
+border-b
+border-primary 
+dark:border-primaryDark
+`
+
+//Styles the h2 tag for the title of the page you are viewing
+const headerTitle=`
+uppercase 
+text-2xl 
+mx-auto 
+max-w-2xl 
+font-bold
+`
+
+//Styles the link to the page that displays all tags 
+const headerTags=`
+text-xs 
+mt-2 
+hover:text-accent
+`

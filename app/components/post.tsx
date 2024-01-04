@@ -2,6 +2,7 @@ import Link from "next/link"
 import React from "react"
 import { Lilita_One, VT323} from 'next/font/google'
 import { PostType } from '../utills/interface'
+import classNames from "classnames"
 
 interface Props {
     post: PostType;
@@ -14,32 +15,73 @@ export default function Post({post}: Props) {
   return (
     <div className={cardStyle}>
       <Link href={`/posts/${post?.slug?.current}`}>
-        <h2 className={`${font.className} text-2xl dark:text-slate-300`}>{post?.title}</h2>
-        <p className={`${dateFont.className} my-2 text-purple-800`}>{new Date(post?.publishedAt).toDateString()}</p>
-        <p className='dark:text-gray-400 mb-4 line-clamp-2'>{post?.excerpt}</p>
+      <h2 className={classNames(font.className, titleStyle)}>{post?.title}</h2>
+        <p className={classNames(dateFont.className, dateStyle)}>{new Date(post?.publishedAt).toDateString()}</p>
+        <p className={excerptStyle}>{post?.excerpt}</p>
       </Link>
-
-      {/* TAGS */}
 
       <div>
         {post?.tags?.map((tag, num) => (
-          <span key={num} className='mr-2 p-1 rounded-sm text-sm lowercase dark:bg-gray-950 border dark:border-gray-900'>#{tag?.name}</span>
+          <span key={num} className={tagStyle}>#{tag?.name}</span>
         ))}
       </div>
     </div>
   )
 }
 
+//Styles for post preview card
 const cardStyle = `
+//shape
 mb-8
 p-4
 border
 border-gray-900
 rounded-md
 shadow-sm
-shadow-purple-950
+shadow-gray
+
+//light
+text-words
+bg-background
+hover:text-words
+hover:bg-gray-100
 hover:shadow-md
-hover:bg-purple-500
-hover:text-white
-hover:dark:bg-gray-950
+
+//dark
+dark:border-primaryDark
+dark:text-wordsDark
+dark:bg-backgroundDark
+hover:dark:bg-neutral-950
+`
+
+//styles for post preview title
+const titleStyle=`
+text-2xl 
+dark:text-wordsDark
+`
+//styles for post preview date
+const dateStyle=`
+my-2 
+dark:text-wordsDark
+`
+//styles for post preview excerpt
+const excerptStyle=`
+mb-4 
+line-clamp-2
+dark:text-gray-400 
+`
+//styles for post preview tags
+const tagStyle=`
+mr-2 
+p-1 
+border 
+rounded-sm 
+text-sm 
+lowercase 
+text-words
+
+//dark 
+dark:text-wordsDark
+dark:border-primaryDark
+
 `
