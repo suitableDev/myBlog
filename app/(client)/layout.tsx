@@ -18,7 +18,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className="overflow-y-scroll">
       <body className={classNames(firaCode.className, bodyStyle)}>
         <Provider>
           <Navbar />

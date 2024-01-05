@@ -53,7 +53,7 @@ export default async function Page({ params }: Params) {
           {new Date(post?.publishedAt).toDateString()}
         </span>
 
-        <div className={"mt-5"}>
+        <div className={"mt-4"}>
           {post?.tags?.map((tag) => (
             <Link key={tag?._id} href={`/tag/${tag.slug.current}`}>
               <span className={tagStyle}>

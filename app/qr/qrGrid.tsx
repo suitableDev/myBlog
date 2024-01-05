@@ -1,17 +1,25 @@
-import React from 'react'
-import { QRcode } from './qrCode'
+"use client"
+import React, { useEffect, useState } from 'react';
+import { QRcode } from './qrCode';
+import { useTheme } from 'next-themes';
 
 export default function QRgrid() {
-  const qrColor = "red"
-  const cols = 5
+  const { theme, setTheme } = useTheme();
+  const [qrColor, setQRColor] = useState('black'); // Default color
 
-  const clipPathValue = `polygon(0% 0%, 100% 0%, 0% 100%)`
+  useEffect(() => {
+    // Update the QR code color when the theme changes
+    setQRColor(theme === 'dark' ? 'white' : 'black');
+  }, [theme]);
+
+  const cols = 3;
+  const clipPathValue = `polygon(0% 0%, 100% 0%, 0% 100%)`;
 
   const gridStyle = {
     display: 'grid',
     gridTemplateColumns: `repeat(${cols}, 1fr)`,
     clipPath: clipPathValue,
-  }
+  };
 
   return (
     <div style={gridStyle}>
@@ -23,5 +31,5 @@ export default function QRgrid() {
         </div>
       ))}
     </div>
-  )
+  );
 }
