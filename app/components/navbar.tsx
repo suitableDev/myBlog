@@ -1,26 +1,38 @@
-import Link from "next/link";
-import ThemeSwitch from "./themeSwitch";
-import Emoji from "../utills/emoji";
-import QRgrid from "../qr/qrGrid";
+import HomeButton from "./homeButton"
+import ThemeSwitch from "./themeSwitch"
 
-export default function Navbar() {
+export default function NavBar() {
   return (
-    <div className="mx-auto max-w-5xl px-6 relative">
-      <div className="flex justify-between items-center h-16 w-full relative">
-        <div className="absolute flex items-center top-10 transform -translate-x-10 -translate-y-10 -z-50">
-          <QRgrid />
-        </div>
-
-        <div className="flex items-center">
-          <Link href="/" className="z-50">
-            <Emoji />
-          </Link>
-        </div>
-
-        <div>
-          <ThemeSwitch />
-        </div>
+    <div className={navContainer}>
+      <div className="flex">
+        <HomeButton />
+      </div>
+      <div className="flex">
+        <ThemeSwitch />
       </div>
     </div>
-  );
+  )
 }
+
+const navContainer = `
+//place in front of everything
+  z-50
+
+//fix it in place and centralise it
+  fixed
+  left-1/2
+  transform 
+  -translate-x-1/2 
+
+//Mimic the width of the header
+  w-full
+  max-w-5xl
+  px-6
+  py-5
+
+//arange icons in a row a push them to each side
+  flex 
+  flex-row 
+  justify-end
+  gap-4
+`

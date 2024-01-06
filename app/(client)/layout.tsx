@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Fira_Code } from "next/font/google";
 import "../globals.css";
-import Navbar from "../components/navbar";
 import Provider from "../utills/provider";
 import classNames from "classnames";
+import NavBar from "../components/navbar";
 
 const firaCode = Fira_Code({ subsets: ["latin"] });
 
@@ -21,8 +21,11 @@ export default function RootLayout({
     <html lang="en" className="overflow-y-scroll">
       <body className={classNames(firaCode.className, bodyStyle)}>
         <Provider>
-          <Navbar />
-          <main className={mainStyle}>{children}</main>
+        <NavBar />
+          <main className={mainStyle}>
+            
+            {children}
+          </main>
         </Provider>
       </body>
     </html>
@@ -38,10 +41,10 @@ const bodyStyle = `
   dark:text-wordsDark
   dark:selection:bg-accent
   dark:selection:text-words
-`
+`;
 //Style for posts and main content
 const mainStyle = `
 mx-auto 
 max-w-5xl 
 px-6
-`
+`;

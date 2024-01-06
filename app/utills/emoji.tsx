@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 
 const emojis = ['😀', '😎', '🚀', '🌈', '🎉', '🌍']
+
 export default function Emoji() {
   const [logoEmoji, setLogoEmoji] = useState('');
 

@@ -1,18 +1,18 @@
-"use client";
-import React, { useEffect, useState } from "react";
-import { useTheme } from "next-themes";
-import { MoonIcon, SunIcon } from "./icons";
+"use client"
+import React, { useEffect, useState } from "react"
+import { useTheme } from "next-themes"
+import { MoonIcon, SunIcon } from "./icons"
 
 export default function ThemeSwitch() {
-  const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
+  const { theme, setTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
-    setMounted(true);
-  }, []);
+    setMounted(true)
+  }, [])
 
   if (!mounted) {
-    return null;
+    return null
   }
 
   return (
@@ -22,17 +22,19 @@ export default function ThemeSwitch() {
     >
       {theme === "dark" ? <SunIcon /> : <MoonIcon />}
     </button>
-  );
+  )
 }
 
 //Styles for themeswitch button
 const themeButton = `
-        border 
-        border-primary 
-        rounded-2xl 
         p-1 
-        hover:bg-opacity-10 
-        hover:bg-secondary 
+        border 
+        rounded-2xl 
+        border-primary 
+        bg-background
+        
+        //dark
         dark:border-primaryDark
-        dark:hover:bg-secondaryDark
-  `;
+        dark:bg-backgroundDark
+
+  `
