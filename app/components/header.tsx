@@ -1,10 +1,10 @@
-import Link from "next/link"
-import React from "react"
-import QRgrid from "../qr/qrGrid"
+import Link from "next/link";
+import React from "react";
+import QRgrid from "../qr/qrGrid";
 
 interface Props {
-  title: string
-  tags?: boolean
+  title: string;
+  tags?: boolean;
 }
 
 export default function Header({ title = "", tags = false }: Props) {
@@ -23,47 +23,56 @@ export default function Header({ title = "", tags = false }: Props) {
         )}
       </div>
     </header>
-  )
+  );
 }
 
 const headerBox = `
-flex
-relative
-overflow-hidden
-text-center 
-h-40
-px-4 
-py-4
-mb-12 
-border-b
-border-primary 
-dark:border-primaryDark
-`
+  flex
+  relative
+  overflow-hidden
+  text-center 
+  h-40
+  px-4 
+  py-4
+  mb-8
+  border-b
+  border-primary 
+  dark:border-primaryDark
+`;
 
-//Push qrcode to the background of the header
+// Center the QR code within the header
 const QRstyle = `
-absolute 
--translate-x-4 
--translate-y-4 
--z-50
-`
+  absolute 
+  inset-0
+  flex 
+  items-center 
+  justify-center
+  -z-50
+  opacity-0
+  sm:opacity-100
+`;
 
 // Center the content within titleAndTags
 const titleAndTags = `
-my-auto
-mx-auto
-`
+  my-auto
+  mx-auto
+`;
 
 // Styles the h2 tag for the title of the page you are viewing
 const headerTitle = `
-uppercase 
-text-2xl 
-font-bold
-`
+  p-4
+  uppercase 
+  text-2xl 
+  font-bold
+  bg-background
+  drop-shadow-[0_0_5px_rgba(255,255,255,1)]
+  dark:bg-backgroundDark
+  dark:drop-shadow-[0_0_5px_rgba(0,0,0,1)]
+`;
 
 // Styles the link to the page that displays all tags
 const headerTags = `
-text-xs 
-mt-2 
-hover:text-accent
-`
+  text-xs 
+  mt-2 
+  hover:text-accent
+`;

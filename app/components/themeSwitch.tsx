@@ -12,7 +12,9 @@ export default function ThemeSwitch() {
   }, [])
 
   if (!mounted) {
-    return null
+    return (
+      <div className={placeholder}><MoonIcon/></div>
+    )
   }
 
   return (
@@ -26,6 +28,19 @@ export default function ThemeSwitch() {
 }
 
 //Styles for themeswitch button
+const placeholder = `
+        p-1 
+        border 
+        rounded-2xl 
+        border-primary 
+        bg-background
+        
+        //dark
+        dark:border-primaryDark
+        dark:bg-backgroundDark
+  `
+
+//Styles for themeswitch button
 const themeButton = `
         p-1 
         border 
@@ -36,5 +51,4 @@ const themeButton = `
         //dark
         dark:border-primaryDark
         dark:bg-backgroundDark
-
   `

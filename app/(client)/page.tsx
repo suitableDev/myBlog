@@ -3,21 +3,20 @@ import Header from "../components/header";
 import PostComponent from "../components/post";
 import { PostType } from "../utills/interface";
 
-
 async function getPosts() {
   const query = `
-  *[_type == "post"] | order(publishedAt desc){
-    title,
-    slug,
-    publishedAt,
-    excerpt,
-    _id,
-    tags[]-> {
-      _id,
+    *[_type == "post"] | order(publishedAt desc){
+      title,
       slug,
-      name
+      publishedAt,
+      excerpt,
+      _id,
+      tags[]-> {
+        _id,
+        slug,
+        name
+      }
     }
-  }
   `;
   const data = await client.fetch(query);
   return data;
@@ -30,7 +29,7 @@ export default async function Home() {
 
   return (
     <div>
-      <Header title="Articles" tags/>
+      <Header title="Articles" tags />
       <div>
         {posts?.length > 0 &&
           posts?.map((post) => <PostComponent key={post?._id} post={post} />)}

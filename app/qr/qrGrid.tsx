@@ -8,18 +8,14 @@ export default function QRgrid() {
   const [qrColor, setQRColor] = useState("black")
 
   useEffect(() => {
-    // Update the QR code color when the theme changes
     setQRColor(theme === "dark" ? "white" : "black")
   }, [theme])
 
-  const cols = 3
-  //mask for QR codes
-  const clipPathValue = `polygon(0% 0%, 100% 0%, 0% 100%)`
+  const cols = 7
 
   const gridStyle = {
     display: "grid",
     gridTemplateColumns: `repeat(${cols}, 1fr)`,
-    //transform: 'rotate(35deg)'
   }
 
   return (
@@ -27,7 +23,6 @@ export default function QRgrid() {
       {[...Array(cols)].map((_, colIndex) => (
         <div
           key={colIndex}
-          //Apply mask to the last instance of a code
           style={colIndex === cols - 1 ? { clipPath: clipPathValue } : {}}
         >
           <QRcode key={colIndex} fillColour={qrColor} />
@@ -36,3 +31,7 @@ export default function QRgrid() {
     </div>
   )
 }
+
+const clipPathValue =`
+polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 0%, 100% 0%)
+`

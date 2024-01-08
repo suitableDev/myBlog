@@ -53,7 +53,7 @@ export default async function Page({ params }: Params) {
           {new Date(post?.publishedAt).toDateString()}
         </span>
 
-        <div className={"mt-4"}>
+        <div className={"mt-2"}>
           {post?.tags?.map((tag) => (
             <Link key={tag?._id} href={`/tag/${tag.slug.current}`}>
               <span className={tagStyle}>
@@ -88,7 +88,7 @@ dark:text-wordsDark
 `
 
 const portableTxtStyles = `
-mt-14
+mt-8
 text-justify
 max-w-2xl
 m-auto
@@ -113,5 +113,4 @@ text-words
 //dark 
 dark:text-wordsDark
 dark:border-gray-900
-
 `
