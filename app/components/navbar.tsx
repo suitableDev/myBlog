@@ -1,11 +1,13 @@
-import HomeButton from "./homeButton"
-import ThemeSwitch from "./themeSwitch"
+import AllTagsButton from "./buttons/AllTagsButton"
+import HomeButton from "./buttons/homeButton"
+import ThemeSwitch from "./buttons/themeSwitch"
 
 export default function NavBar() {
   return (
     <div className={navContainer}>
-      <div className="flex gap-4">
         <HomeButton />
+      <div className="flex gap-4">
+        <AllTagsButton />
         <ThemeSwitch />
       </div>
     </div>
@@ -23,12 +25,12 @@ const navContainer = `
   translate-x-1/2 
 
 //Mimic the width of the header
-  w-full  //we dont use mx-auto here, we fill the parent mx-auto
-  max-w-5xl
-  px-6
-  py-5
+  w-full 
+  max-w-[61rem]
+  px-4
+  py-8
 
 //arange icons in a row a push them to each side
   flex 
-  justify-end
+  justify-between
 `

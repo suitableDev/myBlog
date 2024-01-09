@@ -25,7 +25,7 @@ export default async function page() {
   return (
     <div>
       <Header title="Tags" />
-      <div>
+      <div className="spacer-mobile sm:spacer-normal">
         {tags?.length > 0 &&
           tags?.map((tag) => (
             <Link key={tag?._id} href={`/tag/${tag.slug.current}`}>

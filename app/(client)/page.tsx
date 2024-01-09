@@ -29,8 +29,8 @@ export default async function Home() {
 
   return (
     <div>
-      <Header title="Articles" tags />
-      <div>
+      <Header title="My perfect blog" />
+      <div className="spacer-mobile sm:spacer-normal">
         {posts?.length > 0 &&
           posts?.map((post) => <PostComponent key={post?._id} post={post} />)}
       </div>

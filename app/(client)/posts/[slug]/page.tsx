@@ -47,7 +47,7 @@ export default async function Page({ params }: Params) {
   return (
     <>
       <Header title={post?.title} />
-      <div className="text-center">
+      <div className="text-center spacer-mobile sm:spacer-normal">
         <span
           className={dateStyle}>
           {new Date(post?.publishedAt).toDateString()}

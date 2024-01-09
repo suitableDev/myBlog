@@ -1,78 +1,73 @@
-import Link from "next/link";
-import React from "react";
-import QRgrid from "../qr/qrGrid";
+import React from "react"
+import QRgrid from "./qr/qrGrid"
 
 interface Props {
-  title: string;
-  tags?: boolean;
+  title: string
 }
 
-export default function Header({ title = "", tags = false }: Props) {
+export default function Header({ title = "" }: Props) {
   return (
     <header className={headerBox}>
       <div className={QRstyle}>
         <QRgrid />
       </div>
 
-      <div className={titleAndTags}>
-        <h2 className={headerTitle}>{title}</h2>
-        {tags && (
-          <div className={headerTags}>
-            <Link href="/tag"> All tags</Link>
-          </div>
-        )}
-      </div>
+      <h2 className={headerTitle}>{title}</h2>
     </header>
-  );
+  )
 }
 
 const headerBox = `
   flex
-  relative
-  overflow-hidden
-  text-center 
-  h-40
-  px-4 
-  py-4
-  mb-8
+  fixed
+  right-1/2
+  transform 
+  translate-x-1/2 
+  
+  h-20
+  w-full 
+  max-w-[61rem]
+  sm:h-40
+  
   border-b
   border-primary 
   dark:border-primaryDark
-`;
 
-// Center the QR code within the header
+  overflow-hidden
+  backdrop-blur-[0.5rem]
+`
+
 const QRstyle = `
   absolute 
   inset-0
+  
   flex 
   items-center 
   justify-center
-  -z-50
+
   opacity-0
   sm:opacity-100
-`;
+`
 
-// Center the content within titleAndTags
-const titleAndTags = `
-  my-auto
-  mx-auto
-`;
-
-// Styles the h2 tag for the title of the page you are viewing
 const headerTitle = `
-  p-4
-  uppercase 
-  text-2xl 
-  font-bold
-  bg-background
-  drop-shadow-[0_0_5px_rgba(255,255,255,1)]
-  dark:bg-backgroundDark
-  dark:drop-shadow-[0_0_5px_rgba(0,0,0,1)]
-`;
+//Mobile
+  my-auto  
+  mx-20
+  w-1/3 
+  px-1
 
-// Styles the link to the page that displays all tags
-const headerTags = `
-  text-xs 
-  mt-2 
-  hover:text-accent
-`;
+  uppercase 
+  font-bold
+  text-left
+  rotate-0
+  
+  bg-background
+  dark:bg-backgroundDark
+
+  //Desktop
+  sm:p-4
+  sm:mx-auto
+  sm:text-center
+  sm:text-2xl
+  sm:-rotate-3
+`

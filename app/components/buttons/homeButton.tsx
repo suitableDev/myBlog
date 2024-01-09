@@ -13,21 +13,8 @@ export default function HomeButton() {
     setIconColor(theme === 'dark' ? 'white' : 'black')
   }, [theme])
   return (
-    <Link href="/" className={buttonSurround}>
+    <Link href="/" className="button dark:button-dark">
         <HomeIcon color={iconColor}/>
   </Link>
   )
 }
-
-const buttonSurround=`
-text-2xl 
-p-1 
-border 
-rounded-full 
-border-primary 
-bg-background
-
-//dark
-dark:border-primaryDark 
-dark:bg-backgroundDark
-`
