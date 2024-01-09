@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    .button {
+        @apply p-2 border-b rounded-xl border-primary bg-background;
+    }
+
+    .button-dark {
+        @apply p-2 border-b rounded-xl border-primaryDark bg-backgroundDark
+    }
+    
+    .spacer-normal {
+        @apply pt-48
+    }
+    
+    .spacer-mobile {
+        @apply pt-28
+    }
+}

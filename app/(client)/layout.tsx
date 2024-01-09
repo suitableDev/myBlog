@@ -1,14 +1,15 @@
-import type { Metadata } from 'next'
-import { Fira_Code } from 'next/font/google'
-import '../globals.css'
-import Navbar from '../components/navbar'
-import Provider from '../utills/provider'
+import type { Metadata } from "next"
+import { Fira_Code } from "next/font/google"
+import "../globals.css"
+import Provider from "../utills/provider"
+import classNames from "classnames"
+import NavBar from "../components/navbar"
 
-const firaCode = Fira_Code({ subsets: ['latin'] })
+const firaCode = Fira_Code({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: 'My Perfect Blog',
-  description: 'A list of recomendations',
+  title: "My Perfect Blog",
+  description: "A list of recomendations",
 }
 
 export default function RootLayout({
@@ -17,13 +18,11 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body  
-      className={`${firaCode.className} h-full bg-amber-50 text-indigo-950 dark:bg-slate-950 dark:text-amber-50 dark:selection:bg-purple-500`}
-      >
+    <html lang="en" className="overflow-y-scroll">
+      <body className={classNames(firaCode.className, bodyStyle)}>
         <Provider>
-          <Navbar />
-          <main className='mx-auto max-w-5xl px-6'>
+          <main className={mainStyle}>
+            <NavBar />
             {children}
           </main>
         </Provider>
@@ -31,3 +30,20 @@ export default function RootLayout({
     </html>
   )
 }
+
+//Overall style, applicable to everything (navbar etc)
+const bodyStyle = `
+  h-full 
+  bg-background 
+  text-words
+  dark:bg-backgroundDark 
+  dark:text-wordsDark
+  dark:selection:bg-accent
+  dark:selection:text-words
+`
+//Style for posts and main content
+const mainStyle = `
+mx-auto 
+max-w-5xl 
+px-6
+`
