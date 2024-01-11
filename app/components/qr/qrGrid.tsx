@@ -1,6 +1,6 @@
 "use client"
 import React, { useEffect, useState } from "react"
-import { QRcode } from "./qrCode"
+import { QRcode } from "./qrSVG"
 import { useTheme } from "next-themes"
 
 export default function QRgrid() {

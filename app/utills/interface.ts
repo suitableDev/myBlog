@@ -3,6 +3,8 @@ export interface PostType {
     slug: { current: string };
     publishedAt: string;
     excerpt: string;
+    image: any
+    alt: string
     body: any;
     tags: Array<Tag>;
     _id: string;

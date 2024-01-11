@@ -9,7 +9,6 @@ export default function Button() {
   const [iconColor, setIconColor] = useState('black')
 
   useEffect(() => {
-//Update the icon color when the theme changes
     setIconColor(theme === 'dark' ? 'white' : 'black')
   }, [theme])
   return (

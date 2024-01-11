@@ -44,6 +44,21 @@ export const post = {
         ],
       },
       {
+        name: "thumbnail",
+        title: "Thumbnail",
+        type: "image",
+        options: {
+          hotspot: true,
+        },
+        fields: [
+          {
+              name: 'alt',
+              title:'Alt text',
+              type: 'string',
+          }
+        ]
+      },
+      {
         name: "tags",
         title: "Tags",
         type: "array",

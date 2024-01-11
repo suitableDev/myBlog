@@ -8,7 +8,7 @@ interface Props {
 }
 export const QRcode = ({ fillColour }: Props) => {
   //controls qr code height AND width
-  const wh = 150;
+  const wh = 141;
 
   return (
     <svg
