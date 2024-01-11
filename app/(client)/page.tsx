@@ -1,35 +1,16 @@
-import { client } from "@/sanity/lib/client";
+import { getPreview } from "@/sanity/lib/client";
 import Header from "../components/header";
-import PostComponent from "../components/post";
+import PostComponent from "../components/post-preview";
 import { PostType } from "../utills/interface";
-
-async function getPosts() {
-  const query = `
-    *[_type == "post"] | order(publishedAt desc){
-      title,
-      slug,
-      publishedAt,
-      excerpt,
-      _id,
-      tags[]-> {
-        _id,
-        slug,
-        name
-      }
-    }
-  `;
-  const data = await client.fetch(query);
-  return data;
-}
 
 export const revalidate = 60;
 
 export default async function Home() {
-  const posts: PostType[] = await getPosts();
+  const posts: PostType[] = await getPreview();
 
   return (
     <div>
-      <Header title="My perfect blog" />
+      <Header title="A Blog" />
       <div className="spacer-mobile sm:spacer-normal">
         {posts?.length > 0 &&
           posts?.map((post) => <PostComponent key={post?._id} post={post} />)}

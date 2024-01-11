@@ -1,21 +1,8 @@
 import React from "react"
-import { client } from "@/sanity/lib/client"
+import { getAllTags } from "@/sanity/lib/client"
 import { Tag } from "@/app/utills/interface"
 import Header from "@/app/components/header";
 import Link from "next/link";
-
-async function getAllTags() {
-    const query = `
-    *[_type == "tag"] {
-      name,
-      slug,
-      _id,
-      "postCount": count(*[_type == "post" && references("tags", ^._id)])
-    }
-    `
-    const tags = client.fetch(query);
-    return tags;
-  }
 
 export const revalidate = 60
 

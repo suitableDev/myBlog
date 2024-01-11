@@ -31,7 +31,6 @@ export default function Post({post}: Props) {
 
 //Styles for post preview card
 const cardStyle = `
-//shape
 mb-8
 p-4
 border
@@ -40,14 +39,12 @@ rounded-md
 shadow-sm
 shadow-gray
 
-//light
 text-words
 bg-background
 hover:text-words
 hover:bg-gray-100
 hover:shadow-md
 
-//dark
 dark:border-primaryDark
 dark:text-wordsDark
 dark:bg-backgroundDark
@@ -68,6 +65,7 @@ dark:text-wordsDark
 const excerptStyle=`
 mb-4 
 line-clamp-2
+break-words
 dark:text-gray-400 
 `
 //styles for post preview tags
@@ -80,7 +78,6 @@ text-sm
 lowercase 
 text-words
 
-//dark 
 dark:text-wordsDark
 dark:border-primaryDark
 

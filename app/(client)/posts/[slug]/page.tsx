@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { client } from "@/sanity/lib/client";
+import { getPost } from "@/sanity/lib/client";
 import { PortableText } from "@portabletext/react";
 import Image from "next/image";
 import { urlForImage } from "@/sanity/lib/image";
@@ -12,27 +12,6 @@ interface Params {
   params: {
     slug: string;
   };
-}
-
-async function getPost(slug: string) {
-  const query = `
-    *[_type == "post" && slug.current =="${slug}"][0] {
-        title,
-        slug,
-        publishedAt,
-        excerpt,
-        body,
-        _id,
-        tags[]-> {
-            _id,
-            slug,
-            name
-        }
-      }
-    `;
-
-  const post = await client.fetch(query);
-  return post;
 }
 
 export const revalidate = 60;
