@@ -56,7 +56,9 @@ export default async function Page({ params }: Params) {
 const myPortableTextComponents = {
   types: {
     image: ({ value }: any) => (
+      <div className="mt-8">
       <Image src={urlForImage(value)} alt="Post" width={700} height={700} />
+      </div>
     ),
   },
 };
@@ -67,7 +69,7 @@ dark:text-wordsDark
 `
 
 const portableTxtStyles = `
-mt-8
+mt-4
 text-justify
 max-w-2xl
 m-auto
