@@ -1,26 +1,26 @@
-import React from "react";
-import Link from "next/link";
-import { getPost } from "@/sanity/lib/client";
-import { PortableText } from "@portabletext/react";
-import Image from "next/image";
-import { urlForImage } from "@/sanity/lib/image";
-import { PostType } from "@/app/utills/interface";
-import { notFound } from "next/navigation";
-import Header from "@/app/components/header";
+import React from "react"
+import Link from "next/link"
+import { getPost } from "@/sanity/lib/client"
+import { PortableText } from "@portabletext/react"
+import Image from "next/image"
+import { urlForImage } from "@/sanity/lib/image"
+import { PostType } from "@/app/utills/interface"
+import { notFound } from "next/navigation"
+import Header from "@/app/components/header"
 
 interface Params {
   params: {
-    slug: string;
-  };
+    slug: string
+  }
 }
 
-export const revalidate = 60;
+export const revalidate = 60
 
 export default async function Page({ params }: Params) {
-  const post: PostType = await getPost(params?.slug);
+  const post: PostType = await getPost(params?.slug)
 
   if (!post) {
-    notFound();
+    notFound()
   }
 
   return (
@@ -50,7 +50,7 @@ export default async function Page({ params }: Params) {
         </div>
       </div>
     </>
-  );
+  )
 }
 
 const myPortableTextComponents = {
@@ -61,7 +61,7 @@ const myPortableTextComponents = {
       </div>
     ),
   },
-};
+}
 
 const dateStyle=`
 text-words 

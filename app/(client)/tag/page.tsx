@@ -1,13 +1,13 @@
 import React from "react"
 import { getAllTags } from "@/sanity/lib/client"
 import { Tag } from "@/app/utills/interface"
-import Header from "@/app/components/header";
-import Link from "next/link";
+import Header from "@/app/components/header"
+import Link from "next/link"
 
 export const revalidate = 60
 
 export default async function page() {
-    const tags: Tag[] = await getAllTags();
+    const tags: Tag[] = await getAllTags()
     console.log(tags, "tags")
   return (
     <div>

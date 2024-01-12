@@ -4,6 +4,7 @@ import "../globals.css"
 import Provider from "../utills/provider"
 import classNames from "classnames"
 import NavBar from "../components/navbar"
+import Footer from "../components/footer"
 
 const firaCode = Fira_Code({ subsets: ["latin"] })
 
@@ -24,6 +25,7 @@ export default function RootLayout({
           <main className={mainStyle}>
             <NavBar />
             {children}
+            <Footer />
           </main>
         </Provider>
       </body>
@@ -33,9 +35,9 @@ export default function RootLayout({
 
 //Overall style, applicable to everything (navbar etc)
 const bodyStyle = `
-  h-full 
   bg-background 
   text-words
+  overflow-y-scroll
   dark:bg-backgroundDark 
   dark:text-wordsDark
   dark:selection:bg-accent
@@ -43,6 +45,9 @@ const bodyStyle = `
 `
 //Style for posts and main content
 const mainStyle = `
+flex
+flex-col
+min-h-screen
 mx-auto 
 max-w-5xl 
 px-6

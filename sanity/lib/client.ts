@@ -82,3 +82,14 @@ export async function getAllTags() {
   return data
 }
 
+export async function getFooter() {
+  const query = `
+  *[_type == "footer"][0]{
+    words,
+    email,
+  }
+  `
+  const data = client.fetch(query);
+  return data
+}
+

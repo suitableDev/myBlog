@@ -50,7 +50,6 @@ const QRstyle = `
 `
 
 const headerTitle = `
-//Mobile
   my-auto  
   mx-20
   w-1/3 
@@ -64,7 +63,6 @@ const headerTitle = `
   bg-background
   dark:bg-backgroundDark
 
-  //Desktop
   sm:p-4
   sm:mx-auto
   sm:text-center

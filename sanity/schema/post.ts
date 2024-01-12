@@ -49,9 +49,7 @@ export const post = {
         type: "image",
         options: {
           hotspot: true,
-        },
-        validation: (Rule: Rule) => Rule.required().error("Thumbnail is required"),
-      
+        },      
         fields: [
           {
             name: 'alt',

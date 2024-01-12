@@ -6,7 +6,7 @@ import { TagsIcon } from './icons'
 
 export default function Button() {
   const { theme, setTheme } = useTheme()
-  const [iconColor, setIconColor] = useState('black')
+  const [iconColor, setIconColor] = useState('white')
 
   useEffect(() => {
     setIconColor(theme === 'dark' ? 'white' : 'black')

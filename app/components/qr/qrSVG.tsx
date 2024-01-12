@@ -4,11 +4,11 @@
 // POST BETWEEN THE EXISTING SVG TAGS...
 
 interface Props {
-  fillColour: string;
+  fillColour: string
 }
 export const QRcode = ({ fillColour }: Props) => {
   //controls qr code height AND width
-  const wh = 141;
+  const wh = 141
 
   return (
     <svg
@@ -3083,5 +3083,5 @@ export const QRcode = ({ fillColour }: Props) => {
         fill={fillColour}
       />
     </svg>
-  );
-};
+  )
+}

@@ -13,7 +13,7 @@ export default function ThemeSwitch() {
 
   if (!mounted) {
     return (
-      <div className="button dark:button-dark"><MoonIcon/></div>
+      <div className="button dark:button-dark"><SunIcon/></div>
     )
   }
 
