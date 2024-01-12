@@ -60,7 +60,9 @@ export async function getPostsByTag(tag: String) {
       _id,
       slug,
       name
-    }
+    },
+    "image": thumbnail.asset -> url,
+    "alt": thumbnail.alt,
   }
   `
   const data = await client.fetch(query);

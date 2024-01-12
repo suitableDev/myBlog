@@ -50,11 +50,14 @@ export const post = {
         options: {
           hotspot: true,
         },
+        validation: (Rule: Rule) => Rule.required().error("Thumbnail is required"),
+      
         fields: [
           {
-              name: 'alt',
-              title:'Alt text',
-              type: 'string',
+            name: 'alt',
+            title: 'Alt text',
+            type: 'string',
+            validation: (Rule: Rule) => Rule.required().error("Alt text is required"),
           }
         ]
       },
