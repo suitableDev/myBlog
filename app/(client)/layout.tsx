@@ -9,8 +9,8 @@ import Footer from "../components/footer"
 const firaCode = Fira_Code({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "My Perfect Blog",
-  description: "A list of recomendations",
+  title: "A Blog | Scott James",
+  description: "Problem solving, videogames and web developement",
 }
 
 export default function RootLayout({
