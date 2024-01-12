@@ -1,9 +1,8 @@
 import Link from "next/link"
-import React from "react"
+import Image from "next/image"
+import classNames from "classnames" //allows multiple classnames
 import { Lilita_One, VT323 } from "next/font/google"
 import { PostType } from "../utills/interface"
-import Image from "next/image"
-import classNames from "classnames"
 
 interface Props {
   post: PostType
@@ -29,15 +28,7 @@ export default function Post({ post }: Props) {
             </p>
 
             <p className={excerptStyle}>{post?.excerpt}</p>
-            
-            <div className={tagContainer}>
-              {post?.tags?.map((tag, num) => (
-                <span key={num} className={tagStyle}>
-                  #{tag?.name}
-                </span>
-              ))}
             </div>
-          </div>
 
           <div className={imageStyle}>
               {post?.image && 
@@ -50,6 +41,13 @@ export default function Post({ post }: Props) {
               />}
           </div>
         </div>
+        <div className={tagContainer}>
+              {post?.tags?.map((tag, num) => (
+                <span key={num} className={tagStyle}>
+                  #{tag?.name}
+                </span>
+              ))}
+            </div>
       </Link>
     </div>
   )
@@ -92,7 +90,8 @@ p-4
 `
 
 const titleStyle = `
-text-2xl 
+text-xl 
+sm:text-2xl 
 dark:text-wordsDark
 `
 
@@ -112,11 +111,12 @@ dark:text-gray-400
 const tagContainer=`
 flex
 flex-wrap
-gap-1
 content-end
 `
 
 const tagStyle = `
+ml-2
+mb-2
 p-1 
 border 
 rounded-sm 
@@ -129,7 +129,7 @@ dark:text-wordsDark
 dark:border-primaryDark
 `
 const imageStyle = `
-p-2
+px-2
 flex 
 items-center
 justify-end

@@ -1,12 +1,12 @@
-import { getPreview } from "@/sanity/lib/client";
-import Header from "../components/header";
-import PostComponent from "../components/post-preview";
-import { PostType } from "../utills/interface";
+import { getPreview } from "@/sanity/lib/client"
+import Header from "../components/header"
+import PostComponent from "../components/post-preview"
+import { PostType } from "../utills/interface"
 
-export const revalidate = 60;
+export const revalidate = 60
 
 export default async function Home() {
-  const posts: PostType[] = await getPreview();
+  const posts: PostType[] = await getPreview()
 
   return (
     <div>
@@ -16,5 +16,5 @@ export default async function Home() {
           posts?.map((post) => <PostComponent key={post?._id} post={post} />)}
       </div>
     </div>
-  );
+  )
 }
