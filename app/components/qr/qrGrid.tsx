@@ -4,8 +4,8 @@ import { QRcode } from "./qrSVG"
 import { useTheme } from "next-themes"
 
 export default function QRgrid() {
-  const { theme, setTheme } = useTheme()
-  const [qrColor, setQRColor] = useState("black")
+  const { theme } = useTheme()
+  const [qrColor, setQRColor] = useState("white")
 
   useEffect(() => {
     setQRColor(theme === "dark" ? "white" : "black")
