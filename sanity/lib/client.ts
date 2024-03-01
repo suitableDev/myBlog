@@ -25,9 +25,9 @@ export async function getPreview() {
       "image": thumbnail.asset -> url,
       "alt": thumbnail.alt,
     }
-  `;
-  const data = await client.fetch(query);
-  return data;
+  `
+  const data = await client.fetch(query)
+  return data
 }
 
 export async function getPost(slug: string) {
@@ -45,8 +45,8 @@ export async function getPost(slug: string) {
         }
       }
     `
-  const data = await client.fetch(query);
-  return data;
+  const data = await client.fetch(query)
+  return data
 }
 
 export async function getPostsByTag(tag: String) {
@@ -65,7 +65,7 @@ export async function getPostsByTag(tag: String) {
     "alt": thumbnail.alt,
   }
   `
-  const data = await client.fetch(query);
+  const data = await client.fetch(query)
   return data
 }
 
@@ -78,7 +78,7 @@ export async function getAllTags() {
     "postCount": count(*[_type == "post" && references("tags", ^._id)])
   }
   `
-  const data = client.fetch(query);
+  const data = client.fetch(query)
   return data
 }
 
@@ -89,7 +89,7 @@ export async function getFooter() {
     email,
   }
   `
-  const data = client.fetch(query);
+  const data = client.fetch(query)
   return data
 }
 
