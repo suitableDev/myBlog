@@ -1,8 +1,8 @@
-import { getFooter } from "@/sanity/lib/client"
 import { Footer } from "../utills/interface"
+import { basicFetch, footerData } from "@/sanity/lib/fetchData"
 
 export default async  function Footer() {
-    const footerText: Footer = await getFooter()
+    const footerText: Footer = await basicFetch(footerData)
   return (
     <div className={container}>
 
@@ -17,7 +17,9 @@ export default async  function Footer() {
 }
 
 const container=`
-mt-auto 
+mt-auto
+pt-10
+pb-4
 flex
 gap-2
 justify-center

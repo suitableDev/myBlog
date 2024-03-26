@@ -12,22 +12,30 @@ const font = Lilita_One({ weight: "400", subsets: ["latin"] })
 const dateFont = VT323({ weight: "400", subsets: ["latin"] })
 
 export default function Post({ post }: Props) {
+  const sortedTags = post?.tags?.sort((a, b) => a.name.length - b.name.length);
+
   return (
     <div className={cardStyle}>
       <Link href={`/posts/${post?.slug?.current}`}>
         
         <div className={container}>
           <div className={leftSide}>
-            
+            <div className={cardText}>
             <h2 className={classNames(font.className, titleStyle)}>
               {post?.title}
-            </h2>
-            
+            </h2> 
             <p className={classNames(dateFont.className, dateStyle)}>
               {new Date(post?.publishedAt).toDateString()}
             </p>
-
             <p className={excerptStyle}>{post?.excerpt}</p>
+            </div>
+            <div className={tagContainer}>
+            {sortedTags.map((tag, num) => (
+                <span key={num} className={tagStyle}>
+                  #{tag?.name}
+                </span>
+              ))}
+            </div>
             </div>
 
           <div className={imageStyle}>
@@ -41,13 +49,7 @@ export default function Post({ post }: Props) {
               />}
           </div>
         </div>
-        <div className={tagContainer}>
-              {post?.tags?.map((tag, num) => (
-                <span key={num} className={tagStyle}>
-                  #{tag?.name}
-                </span>
-              ))}
-            </div>
+
       </Link>
     </div>
   )
@@ -75,9 +77,12 @@ dark:text-wordsDark
 dark:bg-backgroundDark
 hover:dark:bg-neutral-950
 `
+const cardText=`
+`
 
 const container = `
 flex 
+flex-row
 justify-between 
 w-full
 `
@@ -85,6 +90,7 @@ w-full
 const leftSide = `
 flex
 flex-col
+justify-between
 w-3/5 
 p-4
 `
@@ -96,7 +102,7 @@ dark:text-wordsDark
 `
 
 const dateStyle = `
-my-2 
+mb-2 
 dark:text-wordsDark
 `
 
@@ -111,12 +117,11 @@ dark:text-gray-400
 const tagContainer=`
 flex
 flex-wrap
-content-end
 `
 
 const tagStyle = `
-ml-2
-mb-2
+mr-2
+mt-2
 p-1 
 border 
 rounded-sm 
