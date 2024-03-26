@@ -1,16 +1,24 @@
+
 export interface PostType {
-    title: string
-    slug: { current: string }
-    publishedAt: string
-    excerpt: string
-    image: any
-    alt: string
-    body: any
-    tags: Array<Tag>
-    _id: string
-  }
-  
-  export interface Tag {
+  title: string;
+  slug: { current: string };
+  publishedAt: string;
+  excerpt: string;
+  image: any;
+  alt: string;
+  intro: any;
+  tags: Array<Tag>;
+  _id: string;
+  paragraphs: Array<Paragraph>;
+}
+
+export interface Paragraph {
+  image: string;
+    alt: string;
+    heading: string;
+    text: any;
+  };
+export interface Tag {
     name: string
     slug: { current: string }
     _id: string

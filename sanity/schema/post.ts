@@ -32,38 +32,84 @@ export const post = {
       validation: (Rule: Rule) => Rule.max(200).error("Max 200 characters"),
     },
     {
-        name: "body",
-        title: "Body",
-        type: "array",
-        of: [
-          { type: "block" },
-          {
-            type: "image",
-            fields: [{ type: "text", name: "alt", title: "Alt" }],
-          },
-        ],
-      },
-      {
-        name: "thumbnail",
-        title: "Thumbnail",
-        type: "image",
-        options: {
-          hotspot: true,
-        },      
-        fields: [
-          {
-            name: 'alt',
-            title: 'Alt text',
-            type: 'string',
-            validation: (Rule: Rule) => Rule.required().error("Alt text is required"),
-          }
-        ]
-      },
-      {
-        name: "tags",
-        title: "Tags",
-        type: "array",
-        of: [{ type: "reference", to: [{ type: "tag" }] }],
-      },
+      name: "thumbnail",
+      title: "Thumbnail",
+      type: "image",
+      options: {
+        hotspot: true,
+      },      
+      fields: [
+        {
+          name: 'alt',
+          title: 'Alt text',
+          type: 'string',
+          validation: (Rule: Rule) => Rule.required().error("Alt text is required"),
+        }
+      ]
+    },
+    {
+      name: "intro",
+      title: "Intro",
+      type: "array",
+      of: [
+        { type: "block" },
+        {
+          type: "image",
+          fields: [{ type: "text", name: "alt", title: "Alt" }],
+        },
+      ],
+    },
+    {
+      name: "tags",
+      title: "Tags",
+      type: "array",
+      of: [{ type: "reference", to: [{ type: "tag" }] }],
+    },
+    {
+      name: "paragraphs",
+      title: "Paragraphs",
+      type: "array",
+      of: [
+        {
+          type: "object",
+          fields: [
+            {
+              name: "image",
+              title: "Image",
+              type: "image",
+              options: {
+                hotspot: true,
+              },
+              fields: [
+                {
+                  name: 'alt',
+                  title: 'Alt text',
+                  type: 'string',
+                  validation: (Rule: Rule) => Rule.required().error("Alt text is required"),
+                }
+              ]
+            },
+            {
+              name: "heading",
+              title: "Heading",
+              type: "string",
+              validation: (Rule: Rule) => Rule.max(50).error("Max 50 characters"),
+            },
+            {
+              name: "text",
+              title: "Text",
+              type: "array",
+              of: [
+                { type: "block" },
+                {
+                  type: "image",
+                  fields: [{ type: "text", name: "alt", title: "Alt" }],
+                },
+              ],
+            }
+          ]
+        }
+      ]
+    }
   ],
 };
