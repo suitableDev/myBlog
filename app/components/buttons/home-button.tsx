@@ -5,7 +5,7 @@ import { useTheme } from "next-themes";
 import { HomeIcon } from "./icons";
 
 export default function HomeButton() {
-  const [mounted, setMounted] = useState(false);
+  const [mounted, setMounted] = useState(true);
   const { theme } = useTheme();
   const [iconColor, setIconColor] = useState("white");
 
