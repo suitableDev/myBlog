@@ -15,11 +15,7 @@ export default function HomeButton() {
   }, [theme]);
 
   if (!mounted) {
-    return (
-      <Link href="/" className="button dark:button-dark">
-        <HomeIcon color={iconColor} />
-      </Link>
-    );
+   null
   }
 
   return (
