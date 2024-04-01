@@ -12,14 +12,7 @@ export default function ThemeSwitch() {
   }, [])
 
   if (!mounted) {
-    return (
-      <button
-      className="button dark:button-dark"
-      onClick={() => setTheme("dark")}
-    >
-      <SunIcon /> 
-    </button>
-    )
+    null
   }
 
   return (
