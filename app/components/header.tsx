@@ -5,6 +5,8 @@ interface Props {
   title: string
 }
 
+export const revalidate = 60;
+
 export default function Header({ title = "" }: Props) {
   return (
     <header className={headerBox}>
