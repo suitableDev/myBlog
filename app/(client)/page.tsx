@@ -3,7 +3,7 @@ import PostComponent from "../components/post-preview"
 import { PostType } from "../utills/interface"
 import { basicFetch, previewData } from "@/sanity/lib/fetchData"
 
-
+export const revalidate = 60
 
 export default async function Home() {
   const posts: PostType[] = await basicFetch(previewData)
