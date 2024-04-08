@@ -7,5 +7,5 @@ interface Props {
 }
 
 export default function Provider({ children }: Props) {
-  return <ThemeProvider attribute="class">{children}</ThemeProvider>
+  return <ThemeProvider attribute="class" enableSystem>{children}</ThemeProvider>
 }

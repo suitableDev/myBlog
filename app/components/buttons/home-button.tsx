@@ -6,20 +6,16 @@ import { HomeIcon } from "./icons";
 
 export default function HomeButton() {
   const [mounted, setMounted] = useState(true);
-  const { theme } = useTheme();
+  const { resolvedTheme, theme } = useTheme();
   const [iconColor, setIconColor] = useState("white");
 
   useEffect(() => {
-    setIconColor(theme === "dark" ? "white" : "black");
+    setIconColor(resolvedTheme === "dark" ? "white" : "black");
     setMounted(true);
-  }, [theme]);
+  }, [resolvedTheme]);
 
   if (!mounted) {
-    return (
-      <Link href="/" className="button dark:button-dark">
-        <HomeIcon color={iconColor} />
-      </Link>
-    );
+    return null
   }
 
   return (
