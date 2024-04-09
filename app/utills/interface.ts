@@ -1,4 +1,3 @@
-
 export interface PostType {
   title: string;
   slug: { current: string };
@@ -6,12 +5,18 @@ export interface PostType {
   excerpt: string;
   image: any;
   alt: string;
+  links: Array<Links>
   intro: any;
   tags: Array<Tag>;
   _id: string;
   paragraphs: Array<Paragraph>;
 }
 
+export interface Links {
+  _key: string;
+  text: string
+  url: string;
+}
 export interface Paragraph {
   image: string;
     alt: string;

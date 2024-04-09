@@ -8,6 +8,7 @@ import { notFound } from "next/navigation";
 import Header from "@/app/components/header";
 import PostParagraphs from "../../../components/post-paragraph";
 import Tags from "@/app/components/tags";
+import InfoBox from "@/app/components/post-infoBox";
 
 interface Params {
   params: {
@@ -28,7 +29,7 @@ export default async function Page({ params }: Params) {
       <Header title={post?.title} />
       <div className="text-center spacer-mobile sm:spacer-normal" /*Creates room for header. Edit in Global Css*/> 
         <div className="flex flex-row max-w-2xl mx-auto">
-
+          <InfoBox image={post} links={post.links}/>
         </div>
 
         <div className="pt-4 pb-2 max-w-2xl mx-auto border-b-2">
@@ -76,9 +77,3 @@ prose-li:list-disc
 prose-li:leading-7
 prose-li:ml-4
 `;
-
-const linkContainer=`
-flex
-flex-col
-`;
-
