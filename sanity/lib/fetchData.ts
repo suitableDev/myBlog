@@ -53,6 +53,11 @@ export async function getPost(slug: string) {
           _id,
           "image": thumbnail.asset -> url,
           "alt": thumbnail.alt,
+          links[]{
+            _key,
+            url,
+            text,
+          },
           tags[]-> {
               _id,
               slug,

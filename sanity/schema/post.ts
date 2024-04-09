@@ -48,6 +48,30 @@ export const post = {
       ]
     },
     {
+      "name": "links",
+      "title": "Links",
+      "type": "array",
+      "of": [
+        {
+          "name": "link",
+          "title": "Link",
+          "type": "object",
+          "fields": [
+            {
+              "name": "text",
+              "title": "Text",
+              "type": "string"
+            },
+            {
+              "name": "url",
+              "title": "URL",
+              "type": "url"
+            }
+          ]
+        }
+      ]
+    },
+    {
       name: "intro",
       title: "Intro",
       type: "array",
