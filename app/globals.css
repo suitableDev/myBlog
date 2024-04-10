@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+h2 {
+    font-size: large;
+    font-weight: bold;
+}
+
+h3 {
+    font-size: normal;
+    font-weight: bold;
+}
+
+
+
 @layer components {
     .button {
         @apply p-2 border-b rounded-xl border-primary bg-background;

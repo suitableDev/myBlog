@@ -53,10 +53,26 @@ export async function getPost(slug: string) {
           _id,
           "image": thumbnail.asset -> url,
           "alt": thumbnail.alt,
-          links[]{
-            _key,
-            url,
-            text,
+          links{
+
+            playing[]{
+              _key, 
+              text, 
+              url, 
+            }, 
+
+            listening[]{
+              _key, 
+              artist, 
+              trackname, 
+              url, 
+
+            }, 
+            watching[]{
+              _key, 
+              text, 
+              url,
+            },
           },
           tags[]-> {
               _id,

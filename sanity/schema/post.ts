@@ -50,27 +50,81 @@ export const post = {
     {
       "name": "links",
       "title": "Links",
-      "type": "array",
-      "of": [
+      "type": "object",
+      "fields": [
         {
-          "name": "link",
-          "title": "Link",
-          "type": "object",
-          "fields": [
+          "name": "playing",
+          "title": "Playing",
+          "type": "array",
+          "of": [
             {
-              "name": "text",
-              "title": "Text",
-              "type": "string"
-            },
+              "type": "object",
+              "fields": [
+                {
+                  "name": "text",
+                  "title": "Text",
+                  "type": "string"
+                },
+                {
+                  "name": "url",
+                  "title": "URL",
+                  "type": "url"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "listening",
+          "title": "Listening",
+          "type": "array",
+          "of": [
             {
-              "name": "url",
-              "title": "URL",
-              "type": "url"
+              "type": "object",
+              "fields": [
+                {
+                  "name": "artist",
+                  "title": "Artist",
+                  "type": "string"
+                },
+                {
+                  "name": "trackname",
+                  "title": "Track Name",
+                  "type": "string"
+                },
+                {
+                  "name": "url",
+                  "title": "URL",
+                  "type": "url"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "watching",
+          "title": "Watching",
+          "type": "array",
+          "of": [
+            {
+              "type": "object",
+              "fields": [
+                {
+                  "name": "text",
+                  "title": "Text",
+                  "type": "string"
+                },
+                {
+                  "name": "url",
+                  "title": "URL",
+                  "type": "url"
+                }
+              ]
             }
           ]
         }
       ]
-    },
+    },    
     {
       name: "intro",
       title: "Intro",

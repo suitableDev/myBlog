@@ -5,7 +5,7 @@ export interface PostType {
   excerpt: string;
   image: any;
   alt: string;
-  links: Array<Links>
+  links: Links
   intro: any;
   tags: Array<Tag>;
   _id: string;
@@ -13,10 +13,25 @@ export interface PostType {
 }
 
 export interface Links {
-  _key: string;
-  text: string
-  url: string;
+  playing: {
+    _key: string;
+    text: string;
+    url: string;
+  }[];
+  listening: {
+    _key: string;
+    artist: string;
+    trackname: string;
+    url: string;
+  }[];
+  watching: {
+    _key: string;
+    text: string;
+    url: string;
+  }[];
 }
+
+
 export interface Paragraph {
   image: string;
     alt: string;
