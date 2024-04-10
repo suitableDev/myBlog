@@ -1,7 +1,7 @@
 import React from "react";
 import { getPost } from "@/sanity/lib/fetchData";
 import { PortableText } from "@portabletext/react";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import { urlForImage } from "@/sanity/lib/image";
 import { PostType } from "@/app/utills/interface";
 import { notFound } from "next/navigation";

@@ -1,5 +1,5 @@
 import Link from "next/link"
-import Image from "next/legacy/image"
+import Image from "next/image"
 import classNames from "classnames" //allows multiple classnames
 import { Lilita_One, VT323 } from "next/font/google"
 import { PostType } from "../utills/interface"
