@@ -1,5 +1,5 @@
 import React from 'react';
-import Image from "next/legacy/image";
+import Image from "next/image";
 import { PortableText } from '@portabletext/react';
 import { Paragraph } from "@/app/utills/interface";
 
