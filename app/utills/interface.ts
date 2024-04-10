@@ -5,7 +5,7 @@ export interface PostType {
   excerpt: string;
   image: any;
   alt: string;
-  links: Array<Links>
+  links: Links
   intro: any;
   tags: Array<Tag>;
   _id: string;
