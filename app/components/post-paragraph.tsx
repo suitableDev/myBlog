@@ -33,7 +33,7 @@ export default function PostParagraphs({ paragraphs }: { paragraphs: Array<Parag
 const paragraphHeader=`
 flex 
 pt-4
-pb-2 
+pb-4
 border-b-2 
 max-w-2xl 
 mx-auto 

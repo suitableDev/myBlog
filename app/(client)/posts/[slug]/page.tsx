@@ -23,21 +23,21 @@ export default async function Page({ params }: Params) {
   if (!post) {
     notFound();
   }
-
   return (
     <>
       <Header title={post?.title} />
-      <div className="text-center spacer-mobile sm:spacer-normal" /*Creates room for header. Edit in Global Css*/> 
-        <div className="flex flex-row max-w-2xl mx-auto">
-          <InfoBox image={post} links={post.links}/>
-        </div>
+      <div className="text-center spacer-mobile sm:spacer-normal" /*Creates room for header. Edit in Global Css*/>
 
-        <div className="pt-4 pb-2 max-w-2xl mx-auto border-b-2">
+        <div className="pt-4 pb-4 max-w-2xl mx-auto border-b-2">
       <div className="flex justify-between items-end">
         <h2 className="text-left text-3xl font-bold">{post?.title}</h2>
         <span className="text-sm">{new Date(post?.publishedAt).toDateString()}</span>
       </div>
+      
       </div>
+      <div className="flex flex-row max-w-2xl mx-auto">
+          <InfoBox image={post} links={post.links}/>
+        </div>
         <div className={portableTxtStyles}>
           <PortableText
             value={post?.intro}
@@ -46,7 +46,7 @@ export default async function Page({ params }: Params) {
         </div>
         
         <PostParagraphs paragraphs={post?.paragraphs} />
-        <div className="pt-8">
+        <div className="pt-4">
         <Tags tags={post?.tags}/>
         </div>
       </div>
