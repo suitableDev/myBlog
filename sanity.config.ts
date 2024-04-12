@@ -3,6 +3,7 @@
  */
 
 import {visionTool} from '@sanity/vision'
+import { iconPicker } from 'sanity-plugin-icon-picker'
 import {defineConfig} from 'sanity'
 import {deskTool} from 'sanity/desk'
 
@@ -18,6 +19,7 @@ export default defineConfig({
   schema,
   plugins: [
     deskTool(),
+    iconPicker(),
     // Vision is a tool that lets you query your content with GROQ in the studio
     // https://www.sanity.io/docs/the-vision-plugin
     visionTool({defaultApiVersion: apiVersion}),

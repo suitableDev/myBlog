@@ -1,5 +1,5 @@
 import Header from "../components/header"
-import PostComponent from "../components/post-preview"
+import PostComponent from "../components/preview-card"
 import { PostType } from "../utills/interface"
 import { basicFetch, previewData } from "@/sanity/lib/fetchData"
 

@@ -37,94 +37,95 @@ export const post = {
       type: "image",
       options: {
         hotspot: true,
-      },      
+      },
       fields: [
         {
-          name: 'alt',
-          title: 'Alt text',
-          type: 'string',
-          validation: (Rule: Rule) => Rule.required().error("Alt text is required"),
-        }
-      ]
+          name: "alt",
+          title: "Alt text",
+          type: "string",
+          validation: (Rule: Rule) =>
+            Rule.required().error("Alt text is required"),
+        },
+      ],
     },
     {
-      "name": "links",
-      "title": "Links",
-      "type": "object",
-      "fields": [
+      name: "links",
+      title: "Links",
+      type: "object",
+      fields: [
         {
-          "name": "playing",
-          "title": "Playing",
-          "type": "array",
-          "of": [
+          name: "playing",
+          title: "Playing",
+          type: "array",
+          of: [
             {
-              "type": "object",
-              "fields": [
+              type: "object",
+              fields: [
                 {
-                  "name": "text",
-                  "title": "Text",
-                  "type": "string"
+                  name: "text",
+                  title: "Text",
+                  type: "string",
                 },
                 {
-                  "name": "url",
-                  "title": "URL",
-                  "type": "url"
-                }
-              ]
-            }
-          ]
+                  name: "url",
+                  title: "URL",
+                  type: "url",
+                },
+              ],
+            },
+          ],
         },
         {
-          "name": "listening",
-          "title": "Listening",
-          "type": "array",
-          "of": [
+          name: "listening",
+          title: "Listening",
+          type: "array",
+          of: [
             {
-              "type": "object",
-              "fields": [
+              type: "object",
+              fields: [
                 {
-                  "name": "artist",
-                  "title": "Artist",
-                  "type": "string"
+                  name: "artist",
+                  title: "Artist",
+                  type: "string",
                 },
                 {
-                  "name": "trackname",
-                  "title": "Track Name",
-                  "type": "string"
+                  name: "trackname",
+                  title: "Track Name",
+                  type: "string",
                 },
                 {
-                  "name": "url",
-                  "title": "URL",
-                  "type": "url"
-                }
-              ]
-            }
-          ]
+                  name: "url",
+                  title: "URL",
+                  type: "url",
+                },
+              ],
+            },
+          ],
         },
         {
-          "name": "watching",
-          "title": "Watching",
-          "type": "array",
-          "of": [
+          name: "watching",
+          title: "Watching",
+          type: "array",
+          of: [
             {
-              "type": "object",
-              "fields": [
+              type: "object",
+              fields: [
                 {
-                  "name": "text",
-                  "title": "Text",
-                  "type": "string"
+                  name: "text",
+                  title: "Text",
+                  type: "string",
                 },
                 {
-                  "name": "url",
-                  "title": "URL",
-                  "type": "url"
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    },    
+                  name: "url",
+                  title: "URL",
+                  type: "url",
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
     {
       name: "intro",
       title: "Intro",
@@ -160,18 +161,20 @@ export const post = {
               },
               fields: [
                 {
-                  name: 'alt',
-                  title: 'Alt text',
-                  type: 'string',
-                  validation: (Rule: Rule) => Rule.required().error("Alt text is required"),
-                }
-              ]
+                  name: "alt",
+                  title: "Alt text",
+                  type: "string",
+                  validation: (Rule: Rule) =>
+                    Rule.required().error("Alt text is required"),
+                },
+              ],
             },
             {
               name: "heading",
               title: "Heading",
               type: "string",
-              validation: (Rule: Rule) => Rule.max(50).error("Max 50 characters"),
+              validation: (Rule: Rule) =>
+                Rule.max(50).error("Max 50 characters"),
             },
             {
               name: "text",
@@ -184,10 +187,45 @@ export const post = {
                   fields: [{ type: "text", name: "alt", title: "Alt" }],
                 },
               ],
-            }
-          ]
-        }
-      ]
-    }
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: "rating",
+      title: "Rating",
+      type: "number",
+      validation: (Rule: Rule) => Rule.max(5),
+      description: "Rate the week",
+    },
+    {
+      name: 'symbol',
+      title: 'Symbol',
+      type: 'iconPicker',
+      options: {
+        storeSvg: true,
+        providers: ["fa"],
+    },
+      description: "Select the symbol that represents your rating",
+      validation: (Rule: Rule) =>
+        Rule.custom((value, { document }) => {
+          // Check if rating is present and if so, symbol should also be present
+          const rating = document && document.rating;
+          if (rating !== undefined && rating !== null) {
+            return value !== undefined && value !== null
+              ? true
+              : "Symbol is required when rating is chosen.";
+          }
+          // If rating is not chosen, no validation needed for symbol
+          return true;
+        }),
+    },
+    {
+      name: "ratingblurb",
+      title: "Rating blurb",
+      type: "text",
+      validation: (Rule: Rule) => Rule.max(200).error("Max 200 characters"),
+    },
   ],
 };

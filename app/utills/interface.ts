@@ -10,6 +10,9 @@ export interface PostType {
   tags: Array<Tag>;
   _id: string;
   paragraphs: Array<Paragraph>;
+  rating: number;
+  symbol: string;
+  ratingblurb: string;
 }
 
 export interface Links {

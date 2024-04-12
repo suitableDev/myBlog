@@ -12,8 +12,6 @@ h3 {
     font-weight: bold;
 }
 
-
-
 @layer components {
     .button {
         @apply p-2 border-b rounded-xl border-primary bg-background;
@@ -24,10 +22,22 @@ h3 {
     }
     
     .spacer-normal {
-        @apply pt-48
+        @apply pt-44
     }
     
     .spacer-mobile {
         @apply pt-28
+    }
+
+    .max-width {
+       @apply max-w-2xl 
+    }
+
+    .drop-shadow-light{
+        @apply drop-shadow-[-0.1rem_0rem_0.1rem_rgba(150,150,150,1)]
+    }
+
+    .drop-shadow-dark{
+        @apply drop-shadow-[-0.1rem_0rem_0.1rem_rgba(218,254,82,1)]
     }
 }
