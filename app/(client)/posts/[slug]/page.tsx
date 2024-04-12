@@ -9,6 +9,7 @@ import Header from "@/app/components/header";
 import PostParagraphs from "../../../components/post-paragraph";
 import Tags from "@/app/components/tags";
 import InfoBox from "@/app/components/post-infoBox";
+import ReviewBox from "@/app/components/post-reviewBox";
 
 interface Params {
   params: {
@@ -27,28 +28,16 @@ export default async function Page({ params }: Params) {
     <>
       <Header title={post?.title} />
       <div className="text-center spacer-mobile sm:spacer-normal" /*Creates room for header. Edit in Global Css*/>
-
-        <div className="pt-4 pb-4 max-w-2xl mx-auto border-b-2">
-      <div className="flex justify-between items-end">
-        <h2 className="text-left text-3xl font-bold">{post?.title}</h2>
-        <span className="text-sm">{new Date(post?.publishedAt).toDateString()}</span>
-      </div>
-      
-      </div>
-      <div className="flex flex-row max-w-2xl mx-auto">
-          <InfoBox image={post} links={post.links}/>
-        </div>
+        <InfoBox info={post} links={post.links}/>
         <div className={portableTxtStyles}>
           <PortableText
             value={post?.intro}
             components={myPortableTextComponents}
           />
         </div>
-        
         <PostParagraphs paragraphs={post?.paragraphs} />
-        <div className="pt-4">
+        <ReviewBox info={post}/>
         <Tags tags={post?.tags}/>
-        </div>
       </div>
     </>
   );
@@ -57,7 +46,7 @@ export default async function Page({ params }: Params) {
 const myPortableTextComponents = {
   types: {
     image: ({ value }: any) => (
-      <div className="mt-8">
+      <div className="mt-4">
         <Image src={urlForImage(value)} alt="Post" width={700} height={700} />
       </div>
     ),
@@ -67,11 +56,11 @@ const myPortableTextComponents = {
 const portableTxtStyles = `
 my-4
 text-justify
-max-w-2xl
+max-width
 mx-auto
 prose-headings:my-5
 prose-heading:text-2xl
-prose-p:mb-5
+prose-p:mb-2
 prose-p:leading-7
 prose-li:list-disc
 prose-li:leading-7

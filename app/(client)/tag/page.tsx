@@ -32,6 +32,7 @@ p-2
 text-sm 
 lowercase
 border 
+border-primary
 text-words
 bg-background
 hover:text-neutral-500

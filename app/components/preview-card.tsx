@@ -56,7 +56,7 @@ export default function Post({ post }: Props) {
 }
 
 const cardStyle = `
-mb-8
+mb-4
 border
 border-gray-900
 rounded-md
@@ -124,6 +124,7 @@ mr-2
 mt-2
 p-1 
 border 
+border-primary
 rounded-sm 
 text-xs
 sm:text-sm

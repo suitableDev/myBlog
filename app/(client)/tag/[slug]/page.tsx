@@ -2,7 +2,7 @@ import React from "react"
 import { getPostsByTag } from "@/sanity/lib/fetchData"
 import { PostType } from "@/app/utills/interface"
 import Header from "@/app/components/header"
-import Post from "@/app/components/post-preview"
+import Post from "@/app/components/preview-card"
 
 interface Params {
     params: {

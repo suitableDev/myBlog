@@ -85,6 +85,9 @@ export async function getPost(slug: string) {
             "alt": image.alt,
             text
           },
+          rating,
+          symbol,
+          ratingblurb,
         }
       `;
   return basicFetch(query);

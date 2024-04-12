@@ -1,20 +1,28 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Links } from "../utills/interface";
+import { Links, PostType } from "../utills/interface";
 
 interface InfoBoxProps {
-  image: any;
+  info: PostType;
   links: Links;
 }
 
-export default function InfoBox({ image, links }: InfoBoxProps) {
+export default function InfoBox({ info, links }: InfoBoxProps) {
   return (
     <>
-      <div className="w-2/5 sm:w-3/5">
-        {image && (
+     <div className="pb-4 max-width mx-auto">
+      <div className="flex justify-between items-end">
+        <h1 className="text-left text-3xl font-bold">{info?.title}</h1>
+        <span className="text-sm">{new Date(info?.publishedAt).toDateString()}</span>
+      </div>
+      
+      </div>
+    <div className="flex flex-row max-width mx-auto border-y border-primary dark:border-primaryDark py-4">
+      <div className="w-0 sm:w-3/5">
+        {info && (
           <Image
-          src={image.image}
-          alt={image.alt}
+          src={info.image}
+          alt={info.alt}
           width={300}
           height={300}
           layout="fixed"
@@ -27,7 +35,6 @@ export default function InfoBox({ image, links }: InfoBoxProps) {
         flex 
         flex-col 
         text-left
-        pl-4
         w-3/5
         sm:w-2/5
         ">
@@ -87,7 +94,7 @@ export default function InfoBox({ image, links }: InfoBoxProps) {
         ))}
         </div>
         
-
+        </div>
       </div>
     </>
   );
