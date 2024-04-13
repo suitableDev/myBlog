@@ -1,37 +1,33 @@
 "use client"
-import React, { useEffect, useState } from "react"
-import { QRcode } from "./qrSVG"
-import { useTheme } from "next-themes"
+import React, { useEffect, useState } from "react";
+import DynamicQR from "./qrDyanmic";
+import { useTheme } from "next-themes";
 
 export default function QRgrid() {
-  const { resolvedTheme, theme } = useTheme()
-  const [qrColor, setQRColor] = useState("white")
+  const { resolvedTheme } = useTheme();
+  const [qrFgColor, setQRFgColor] = useState("black");
 
   useEffect(() => {
-    setQRColor( resolvedTheme === "dark" ? "white" : "black")
-  }, [resolvedTheme])
+    const newFgColor = resolvedTheme === "dark" ? "white" : "black";
+    setQRFgColor(newFgColor);
+  }, [resolvedTheme]);
 
-  const cols = 7
-
-  const gridStyle = {
-    display: "grid",
-    gridTemplateColumns: `repeat(${cols}, 1fr)`,
-  }
+  const cols = 7;
+  const gap = "0.82rem";
 
   return (
-    <div style={gridStyle}>
+    <div
+      style={{
+        display: "grid",
+        gridTemplateColumns: `repeat(${cols}, 1fr)`,
+        gap: gap,
+      }}
+    >
       {[...Array(cols)].map((_, colIndex) => (
-        <div
-          key={colIndex}
-          style={colIndex === cols - 1 ? { clipPath: clipPathValue } : {}}
-        >
-          <QRcode key={colIndex} fillColour={qrColor} />
+        <div key={colIndex}>
+          <DynamicQR fgColor={qrFgColor} />
         </div>
       ))}
     </div>
-  )
+  );
 }
-
-const clipPathValue =`
-polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 0%, 100% 0%)
-`
