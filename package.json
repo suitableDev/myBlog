@@ -19,6 +19,7 @@
     "react": "^18",
     "react-dom": "^18",
     "react-inlinesvg": "^4.1.3",
+    "react-qr-code": "^2.0.12",
     "sanity": "^3.23.4",
     "sanity-plugin-icon-picker": "^3.3.0",
     "styled-components": "^6.1.6"
