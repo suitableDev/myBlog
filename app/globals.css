@@ -34,10 +34,10 @@ h3 {
     }
 
     .drop-shadow-light{
-        @apply drop-shadow-[-0.1rem_0rem_0.1rem_rgba(150,150,150,1)]
+        @apply drop-shadow-[-0.1rem_0rem_0rem_rgba(150,150,150,1)]
     }
 
     .drop-shadow-dark{
-        @apply drop-shadow-[-0.1rem_0rem_0.1rem_rgba(218,254,82,1)]
+        @apply drop-shadow-[-0.1rem_0rem_0rem_rgba(218,254,82,1)]
     }
 }

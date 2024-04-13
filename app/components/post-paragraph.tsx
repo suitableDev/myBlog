@@ -8,9 +8,12 @@ export default function PostParagraphs({ paragraphs }: { paragraphs: Array<Parag
     <>
       {paragraphs.map((paragraph, index) => (
         <div key={index}>
-                    <h2 className={paragraphHeader}>
+          <div className={paragraphHeader}>
+          <h1>
             {paragraph?.heading}
-          </h2>
+          </h1>
+          </div>
+            
           <div className={imageStyle}>
             <Image
               src={paragraph?.image}
