@@ -27,7 +27,7 @@ export default function ReviewBox({ info }: any) {
 }
 
 const Container = `
-  py-8
+  py-6
   px-2
   flex
   flex-col

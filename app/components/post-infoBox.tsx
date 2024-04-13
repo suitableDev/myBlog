@@ -35,11 +35,12 @@ export default function InfoBox({ info, links }: InfoBoxProps) {
         flex 
         flex-col 
         text-left
+        sm:text-right
         w-3/5
         sm:w-2/5
         ">
           <h2> Ive mostly been...</h2>
-          <div className="pt-4">
+          <div className="pt-2">
           <h3>Playing:</h3>
         {links?.playing?.map((link) => (
           <div key={link._key}>
@@ -50,7 +51,9 @@ export default function InfoBox({ info, links }: InfoBoxProps) {
             target="_blank"
             className="underline hover:text-neutral-500 hover:dark:text-accent "
             >
+              <i>
             {link.text}
+              </i>
             </Link>
               </li>
               </ul>
@@ -68,7 +71,9 @@ export default function InfoBox({ info, links }: InfoBoxProps) {
             target="_blank"
             className="underline hover:text-neutral-500 hover:dark:text-accent "
             >
+                          <i>
             {link.text}
+              </i>
             </Link>
               </li>
               </ul>
@@ -86,7 +91,10 @@ export default function InfoBox({ info, links }: InfoBoxProps) {
             target="_blank"
             className="underline hover:text-neutral-500 hover:dark:text-accent "
             >
+              <i>
+
             {link.artist}
+              </i>
             </Link>
               </li>
               </ul>
