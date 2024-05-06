@@ -1,6 +1,6 @@
 import React from "react"
 import { basicFetch, tagsData } from "@/sanity/lib/fetchData"
-import { Tag } from "@/app/utills/interface"
+import { Tag } from "@/sanity/lib/interface"
 import Header from "@/app/components/header"
 import Link from "next/link"
 
@@ -36,9 +36,6 @@ border-primary
 text-words
 bg-background
 hover:text-neutral-500
-
-
-//dark
 dark:bg-backgroundDark
 dark:text-wordsDark
 dark:border-primaryDark

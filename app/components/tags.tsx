@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Tag } from "@/app/utills/interface";
+import { Tag } from "@/sanity/lib/interface";
 
 export default function Tags({ tags }: { tags: Array<Tag> }) {
   const sortedTags = tags?.sort((a, b) => b.name.length - a.name.length);
@@ -22,10 +22,9 @@ border
 border-primary
 rounded-sm 
 text-xs
-sm:text-sm
 lowercase 
 text-words
-
 dark:text-wordsDark
 dark:border-primaryDark
+sm:text-sm
 `;

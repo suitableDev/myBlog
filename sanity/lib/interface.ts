@@ -48,7 +48,7 @@ export interface Tag {
     postCount?: number
   }
 
-  export interface Footer {
+  export interface FooterTypes {
     words: string
     email: string
   }

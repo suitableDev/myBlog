@@ -1,19 +1,21 @@
-import React from 'react';
+import React from "react";
 import Image from "next/image";
-import { PortableText } from '@portabletext/react';
-import { Paragraph } from "@/app/utills/interface";
+import { PortableText } from "@portabletext/react";
+import { Paragraph } from "@/sanity/lib/interface";
 
-export default function PostParagraphs({ paragraphs }: { paragraphs: Array<Paragraph> }) {
+export default function PostParagraphs({
+  paragraphs,
+}: {
+  paragraphs: Array<Paragraph>;
+}) {
   return (
     <>
       {paragraphs.map((paragraph, index) => (
         <div key={index}>
           <div className={paragraphHeader}>
-          <h1>
-            {paragraph?.heading}
-          </h1>
+            <h1>{paragraph?.heading}</h1>
           </div>
-            
+
           <div className={imageStyle}>
             <Image
               src={paragraph?.image}
@@ -33,8 +35,7 @@ export default function PostParagraphs({ paragraphs }: { paragraphs: Array<Parag
   );
 }
 
-
-const paragraphHeader=`
+const paragraphHeader = `
 flex 
 pb-4
 max-width 
@@ -42,15 +43,13 @@ mx-auto
 text-left 
 text-3xl
 font-bold
-`
-const imageStyle=`
+`;
+const imageStyle = `
 flex
 justify-center
 max-width
 mx-auto
-
-`
-
+`;
 const portableTxtStyles = `
 mt-4
 text-justify
