@@ -1,8 +1,8 @@
-import { Footer } from "../utills/interface"
+import { FooterTypes } from "../../sanity/lib/interface"
 import { basicFetch, footerData } from "@/sanity/lib/fetchData"
 
 export default async  function Footer() {
-    const footerText: Footer = await basicFetch(footerData)
+    const footerText: FooterTypes = await basicFetch(footerData)
   return (
     <div className={container}>
 

@@ -1,6 +1,6 @@
 import React from "react"
 import { getPostsByTag } from "@/sanity/lib/fetchData"
-import { PostType } from "@/app/utills/interface"
+import { PostType } from "@/sanity/lib/interface"
 import Header from "@/app/components/header"
 import Post from "@/app/components/preview-card"
 

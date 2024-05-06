@@ -1,6 +1,6 @@
 import Header from "../components/header"
 import PostComponent from "../components/preview-card"
-import { PostType } from "../utills/interface"
+import { PostType } from "../../sanity/lib/interface"
 import { basicFetch, previewData } from "@/sanity/lib/fetchData"
 
 export const revalidate = 60
